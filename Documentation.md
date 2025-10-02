@@ -160,13 +160,19 @@ Using the lowest, most conservative estimate possible ([Perplexity search](https
 Root exudates are estimated to represent 5–21% of all photosynthetically-fixed C in plants and trees (Zhang, 2024). Let's choose 5% as a minimum estimate.
 
 This means that 5% of the plant carbon is represented by root exudates. This translates to:
+
 $$\frac{C_E}{(C_P + C_S + C_R + C_E)} = 0.05$$
+
 $$=>C_E = 0.05 \times(C_P + C_S + C_R + C_E)$$
 
 Bringing $C_E$ on one side, and solving:
+
 $$C_E - 0.05 \times C_E= 0.05 \times(C_P + C_S + C_R)$$
+
 $$0.95 \times C_E = 0.05 \times(C_P + C_S + C_R)$$
+
 $$ C_E = \frac{0.05}{0.95} \times(C_P + C_S + C_R)$$
+
 $$ C_E = 0.0526 \times(C_P + C_S + C_R)$$
 
 ##### Analysis 
