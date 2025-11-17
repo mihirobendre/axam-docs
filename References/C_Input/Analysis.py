@@ -10,7 +10,7 @@ def Bolinder_CI(C_P, S_P, C_S, S_S, C_R, S_R, C_E, S_E):
 	C_I = C_P * S_P + C_S * S_S + C_R * S_R + C_E * S_E
 	return C_I
 
-final_data = {'region':[], 'crop': [], 'yield': [], 'sem': [], 'moist_content':[], 'harvest_index':[], 'rs_ratio':[], 'carbon_input':[], 'baseline':[]}
+final_data = {'region':[], 'crop': [], 'yield': [], 'sem': [], 'moist_content':[], 'harvest_index':[], 'rs_ratio':[], 'project_c_inp':[], 'baseline_c_inp':[]}
 
 # Static parameters
 carbon_content = 0.45
@@ -74,11 +74,11 @@ final_data['sem'].append(sem)
 final_data['moist_content'].append(moist_content)
 final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
-final_data['carbon_input'].append(carbon_input)
+final_data['project_c_inp'].append(carbon_input)
 
 burned = C_S*0.9
 baseline = carbon_input - burned
-final_data['baseline'].append(baseline)
+final_data['baseline_c_inp'].append(baseline)
 
 ##########################
 ######### RICE ##########
@@ -136,11 +136,11 @@ final_data['sem'].append(sem)
 final_data['moist_content'].append(moist_content)
 final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
-final_data['carbon_input'].append(carbon_input)
+final_data['project_c_inp'].append(carbon_input)
 
 burned = C_S*0.9
 baseline = carbon_input - burned
-final_data['baseline'].append(baseline)
+final_data['baseline_c_inp'].append(baseline)
 
 ##########################
 ######### YAM ##########
@@ -198,11 +198,11 @@ final_data['sem'].append(sem)
 final_data['moist_content'].append(moist_content)
 final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
-final_data['carbon_input'].append(carbon_input)
+final_data['project_c_inp'].append(carbon_input)
 
 burned = C_S*0.9
 baseline = carbon_input - burned
-final_data['baseline'].append(baseline)
+final_data['baseline_c_inp'].append(baseline)
 
 ##########################
 ######### SORGHUM ##########
@@ -258,11 +258,11 @@ final_data['sem'].append(sem)
 final_data['moist_content'].append(moist_content)
 final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
-final_data['carbon_input'].append(carbon_input)
+final_data['project_c_inp'].append(carbon_input)
 
 burned = C_S*0.9
 baseline = carbon_input - burned
-final_data['baseline'].append(baseline)
+final_data['baseline_c_inp'].append(baseline)
 
 ##########################
 ######### MILLET ##########
@@ -318,11 +318,11 @@ final_data['sem'].append(sem)
 final_data['moist_content'].append(moist_content)
 final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
-final_data['carbon_input'].append(carbon_input)
+final_data['project_c_inp'].append(carbon_input)
 
 burned = C_S*0.9
 baseline = carbon_input - burned
-final_data['baseline'].append(baseline)
+final_data['baseline_c_inp'].append(baseline)
 
 ##########################
 ######### GROUNDNUT ##########
@@ -378,11 +378,11 @@ final_data['sem'].append(sem)
 final_data['moist_content'].append(moist_content)
 final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
-final_data['carbon_input'].append(carbon_input)
+final_data['project_c_inp'].append(carbon_input)
 
 burned = C_S*0.9
 baseline = carbon_input - burned
-final_data['baseline'].append(baseline)
+final_data['baseline_c_inp'].append(baseline)
 
 ##########################
 ######### COWPEA ##########
@@ -438,11 +438,11 @@ final_data['sem'].append(sem)
 final_data['moist_content'].append(moist_content)
 final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
-final_data['carbon_input'].append(carbon_input)
+final_data['project_c_inp'].append(carbon_input)
 
 burned = C_S*0.9
 baseline = carbon_input - burned
-final_data['baseline'].append(baseline)
+final_data['baseline_c_inp'].append(baseline)
 
 ##########################
 ######### SOYABEAN ##########
@@ -499,11 +499,11 @@ final_data['sem'].append(sem)
 final_data['moist_content'].append(moist_content)
 final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
-final_data['carbon_input'].append(carbon_input)
+final_data['project_c_inp'].append(carbon_input)
 
 burned = C_S*0.9
 baseline = carbon_input - burned
-final_data['baseline'].append(baseline)
+final_data['baseline_c_inp'].append(baseline)
 
 ################################
 
