@@ -15,6 +15,8 @@ final_data = {'region':[], 'crop': [], 'yield': [], 'sem': [], 'moist_content':[
 # Static parameters
 carbon_content = 0.45
 root_exudate_ratio = 0.05 # of all other biomass
+burnt = 0.20 
+# for conservativeness, to avoid inflating difference between project and baseline ERs, we are making baseline proportion-burned as 20%, although in reality we know it may be far more than that, as many crops are burned. 
 
 ##########################
 ######### MAIZE ##########
@@ -56,11 +58,11 @@ moist_content = 0.13
 harvest_index = 0.48
 rs_ratio = 0.1
 
-C_P = (crop_yield - sem) * carbon_content * (1 - moist_content)
+C_P = (crop_yield) * carbon_content
 S_P = 0
-C_S = C_P * (1 - harvest_index)
+C_S = C_P * (1/harvest_index - 1)
 S_S = 1
-C_R = C_S * rs_ratio
+C_R = (C_S + C_P)* rs_ratio
 S_R = 1
 C_E = (C_P + C_S + C_R) * (root_exudate_ratio / (1 - root_exudate_ratio))
 S_E = 1
@@ -76,7 +78,7 @@ final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
 final_data['project_c_inp'].append(carbon_input)
 
-burned = C_S*0.9
+burned = C_S*burnt
 baseline = carbon_input - burned
 final_data['baseline_c_inp'].append(baseline)
 
@@ -118,11 +120,11 @@ moist_content = 0.13
 harvest_index = 0.17
 rs_ratio = 0.2
 
-C_P = (crop_yield - sem) * carbon_content * (1 - moist_content)
+C_P = (crop_yield) * carbon_content
 S_P = 0 
-C_S = C_P * (1 - harvest_index)
+C_S = C_P * (1/harvest_index - 1)
 S_S = 1 
-C_R = C_S * rs_ratio
+C_R = (C_S + C_P)* rs_ratio
 S_R = 1 
 C_E = (C_P + C_S + C_R) * (root_exudate_ratio / (1 - root_exudate_ratio))
 S_E = 1 
@@ -138,7 +140,7 @@ final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
 final_data['project_c_inp'].append(carbon_input)
 
-burned = C_S*0.9
+burned = C_S*burnt
 baseline = carbon_input - burned
 final_data['baseline_c_inp'].append(baseline)
 
@@ -180,14 +182,14 @@ moist_content = 0.7
 harvest_index = 0.5
 rs_ratio = 1 # not known, 1 is a placeholder
 
-C_P = (crop_yield - sem) * carbon_content * (1 - moist_content)
-S_P = 0
-C_S = C_P * (1 - harvest_index)
-S_S = 1
-C_R = 0
-S_R = 1
+C_P = (crop_yield) * carbon_content
+S_P = 0 
+C_S = C_P * (1/harvest_index - 1)
+S_S = 1 
+C_R = (C_S + C_P)* rs_ratio
+S_R = 1 
 C_E = (C_P + C_S + C_R) * (root_exudate_ratio / (1 - root_exudate_ratio))
-S_E = 1
+S_E = 1 
 
 carbon_input = Bolinder_CI(C_P, S_P, C_S, S_S, C_R, S_R, C_E, S_E)
 
@@ -200,7 +202,7 @@ final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
 final_data['project_c_inp'].append(carbon_input)
 
-burned = C_S*0.9
+burned = C_S*burnt
 baseline = carbon_input - burned
 final_data['baseline_c_inp'].append(baseline)
 
@@ -240,14 +242,16 @@ moist_content = 0.12
 harvest_index = 0.29
 rs_ratio = 0.01
 
-C_P = (crop_yield - sem) * carbon_content * (1 - moist_content)
-S_P = 0
-C_S = C_P * (1 - harvest_index)
-S_S = 1
-C_R = C_S * rs_ratio
-S_R = 1
+C_P = (crop_yield) * carbon_content
+S_P = 0 
+C_S = C_P * (1/harvest_index - 1)
+S_S = 1 
+C_R = (C_S + C_P)* rs_ratio
+S_R = 1 
 C_E = (C_P + C_S + C_R) * (root_exudate_ratio / (1 - root_exudate_ratio))
 S_E = 1
+
+
 
 carbon_input = Bolinder_CI(C_P, S_P, C_S, S_S, C_R, S_R, C_E, S_E)
 
@@ -260,7 +264,7 @@ final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
 final_data['project_c_inp'].append(carbon_input)
 
-burned = C_S*0.9
+burned = C_S*burnt
 baseline = carbon_input - burned
 final_data['baseline_c_inp'].append(baseline)
 
@@ -300,14 +304,14 @@ moist_content = 0.12
 harvest_index = 0.34
 rs_ratio = 0.2
 
-C_P = (crop_yield - sem) * carbon_content * (1 - moist_content)
-S_P = 0
-C_S = C_P * (1 - harvest_index)
-S_S = 1
-C_R = C_S * rs_ratio
-S_R = 1
+C_P = (crop_yield) * carbon_content
+S_P = 0 
+C_S = C_P * (1/harvest_index - 1)
+S_S = 1 
+C_R = (C_S + C_P)* rs_ratio
+S_R = 1 
 C_E = (C_P + C_S + C_R) * (root_exudate_ratio / (1 - root_exudate_ratio))
-S_E = 1
+S_E = 1 
 
 carbon_input = Bolinder_CI(C_P, S_P, C_S, S_S, C_R, S_R, C_E, S_E)
 
@@ -320,7 +324,7 @@ final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
 final_data['project_c_inp'].append(carbon_input)
 
-burned = C_S*0.9
+burned = C_S*burnt
 baseline = carbon_input - burned
 final_data['baseline_c_inp'].append(baseline)
 
@@ -360,12 +364,12 @@ moist_content = 0.10
 harvest_index = 0.37
 rs_ratio = 0.1
 
-C_P = (crop_yield - sem) * carbon_content * (1 - moist_content)
-S_P = 0
-C_S = C_P * (1 - harvest_index)
-S_S = 1
-C_R = C_S * rs_ratio
-S_R = 1
+C_P = (crop_yield) * carbon_content
+S_P = 0 
+C_S = C_P * (1/harvest_index - 1)
+S_S = 1 
+C_R = (C_S + C_P)* rs_ratio
+S_R = 1 
 C_E = (C_P + C_S + C_R) * (root_exudate_ratio / (1 - root_exudate_ratio))
 S_E = 1
 
@@ -380,7 +384,7 @@ final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
 final_data['project_c_inp'].append(carbon_input)
 
-burned = C_S*0.9
+burned = C_S*burnt
 baseline = carbon_input - burned
 final_data['baseline_c_inp'].append(baseline)
 
@@ -420,14 +424,14 @@ moist_content = 0.1
 harvest_index = 0.23
 rs_ratio = 0.1
 
-C_P = (crop_yield - sem) * carbon_content * (1 - moist_content)
-S_P = 0
-C_S = C_P * (1 - harvest_index)
-S_S = 1
-C_R = C_S * rs_ratio
-S_R = 1
+C_P = (crop_yield) * carbon_content
+S_P = 0 
+C_S = C_P * (1/harvest_index - 1)
+S_S = 1 
+C_R = (C_S + C_P)* rs_ratio
+S_R = 1 
 C_E = (C_P + C_S + C_R) * (root_exudate_ratio / (1 - root_exudate_ratio))
-S_E = 1
+S_E = 1 
 
 carbon_input = Bolinder_CI(C_P, S_P, C_S, S_S, C_R, S_R, C_E, S_E)
 
@@ -440,7 +444,7 @@ final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
 final_data['project_c_inp'].append(carbon_input)
 
-burned = C_S*0.9
+burned = C_S*burnt
 baseline = carbon_input - burned
 final_data['baseline_c_inp'].append(baseline)
 
@@ -481,14 +485,14 @@ moist_content = 0.13
 harvest_index = 0.34
 rs_ratio = 0.09
 
-C_P = (crop_yield - sem) * carbon_content * (1 - moist_content)
-S_P = 0
-C_S = C_P * (1 - harvest_index)
-S_S = 1
-C_R = C_S * rs_ratio
-S_R = 1
+C_P = (crop_yield) * carbon_content
+S_P = 0 
+C_S = C_P * (1/harvest_index - 1)
+S_S = 1 
+C_R = (C_S + C_P)* rs_ratio
+S_R = 1 
 C_E = (C_P + C_S + C_R) * (root_exudate_ratio / (1 - root_exudate_ratio))
-S_E = 1
+S_E = 1 
 
 carbon_input = Bolinder_CI(C_P, S_P, C_S, S_S, C_R, S_R, C_E, S_E)
 
@@ -501,7 +505,7 @@ final_data['harvest_index'].append(harvest_index)
 final_data['rs_ratio'].append(rs_ratio)
 final_data['project_c_inp'].append(carbon_input)
 
-burned = C_S*0.9
+burned = C_S*burnt
 baseline = carbon_input - burned
 final_data['baseline_c_inp'].append(baseline)
 
